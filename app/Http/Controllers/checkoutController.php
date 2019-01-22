@@ -14,7 +14,7 @@ class checkoutController extends Controller
     {
         $this->cookieSet();
         $cart_quan = count(unserialize($_COOKIE['cart']));
-     //return view('checkout',compact('cart_quan'));
+     
         $cart_products = array();
         $total=0;
         if(isset($_COOKIE['cart']) && $cart_quan>0)
@@ -22,7 +22,7 @@ class checkoutController extends Controller
         	$products = unserialize($_COOKIE['cart']);
         	
         	foreach ($products as $product_id => $product_quan) {
-        		//return $key;
+        		
         		$pro = Product_manage::find($product_id);
         		if($pro)
         		{
@@ -47,15 +47,14 @@ class checkoutController extends Controller
         		
         	}
 
-        	//return $cart_products;
+        
         	
         }
 
          $categories = Category::get();
         $subcats = $this->getSubcategory();
 
-        //return $total;
-       // return $cart_quan;
+        
         return view('checkout',compact('cart_quan','cart_products','total','categories','subcats'));
     }
 
@@ -67,9 +66,9 @@ class checkoutController extends Controller
 
         foreach($categories as $category)
         {
-             //return  $category;
+            
             $product_categories = Product_category::get()->where('category_id',$category->id);
-            //return  $product_categories;
+           
              $scat = array();
             foreach($product_categories as $product_category)
             {
@@ -79,7 +78,7 @@ class checkoutController extends Controller
               array_push($subcats,$scat);
 
           
-            //return $cats;
+           
             
 
         }
@@ -94,8 +93,7 @@ class checkoutController extends Controller
     	{
     		$cart=array();
     		setcookie('cart', serialize($cart), time()+(86400*30));
-    		//$data = unserialize($_COOKIE['cookie']);
-    		//return $data;
+    		
     	}
     	
     }
@@ -116,17 +114,9 @@ class checkoutController extends Controller
 		setcookie('cart', serialize($data), time()+(86400*30));
 		
     	return count($data);
-    	/*if(array_key_exists($id."", $data))
-		{
-			unset($data[$id.""]);
-			
-			
-		}
-		unset($_COOKIE['cookie']);
-		setcookie('cookie', serialize($data), time()+(86400*30));
-		 $cart_quan = count(unserialize($_COOKIE['cookie']));*/
+    	
 
-		//return  $cart_quan;
+	
     }
 
     public function removeProduct(Request $request)
@@ -169,7 +159,7 @@ class checkoutController extends Controller
     {
     	$id = $request->id;
     	$data = unserialize($_COOKIE['cart']);
-    	//return $data;
+    	
     	if(array_key_exists($id."", $data))
 		{
 

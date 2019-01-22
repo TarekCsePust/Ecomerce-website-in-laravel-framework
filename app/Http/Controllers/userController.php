@@ -173,25 +173,7 @@ class userController extends Controller
                          return redirect()->back();
                     }
                 }
-               // return $card;
-                /*if(!$card[0]->use_status)
-                {
-                    $user = User::find(Auth::user()->id);
-                    //$valence = $user->valence + $card[0]->amount;
-                     //$card[0]->use_status = 1;
-                     //$card[0]->save();
-                    //DB::table('users')->where('id',Auth::user()->id)->update(['valence' =>$valence]);
-                   
-                    //$card->save();
-                    //$user->save();
-
-                    return $user->valence;
-                }
-                else
-                {
-                    return "used";
-                }*/
-                
+              
             }
         }
         return redirect('/profile');;

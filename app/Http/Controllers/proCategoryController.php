@@ -16,7 +16,7 @@ class proCategoryController extends Controller
 
     public function insert(Request $request)
     {
-        //return $request;
+       
     	$this->validate($request, [
 
         'category' => 'required',
@@ -38,7 +38,7 @@ class proCategoryController extends Controller
     	 }
     	 $proCat->save();
 
-    	 //$request->session()->flash('msg', 'Product category added sucessfully.');
+    	
 
          return redirect('add_proCat');
     }

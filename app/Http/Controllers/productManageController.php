@@ -20,7 +20,7 @@ class productManageController extends Controller
 
     public function insert(Request $request)
     {
-    	//return $request;
+    	
       $this->validate($request, [
         'category' => 'required',
          'product_category' => 'required',
@@ -100,7 +100,7 @@ class productManageController extends Controller
 
          }
 
-          //$request->session()->flash('msg', 'Product added sucessfully.');
+          
 
 
 
